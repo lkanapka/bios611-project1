@@ -1,7 +1,8 @@
 .PHONY: clean
 
 clean:
-	rm derived_data/*
+	rm -f derived_data/*.csv
+	rm -f figures/*.png
   
 derived_data/storms.csv derived_data/tracks.csv:\
  source_data/hurdat2-1851-2019-052520.csv\
