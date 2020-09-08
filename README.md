@@ -21,10 +21,12 @@ been any patterns over the last few decades.
 ### Dataset 
 
 The HURDAT2 dataset from the National Hurricane Center contains the tracks and 
-measurements of all recorded storms since 1851. Our analysis will only consider 
+measurements of all recorded storms since 1851. This analysis will only consider 
 the storms that were observed after 1968 when modern sattelite surveillance 
 was introduced. Prior to 1968, records relied on observations from ships and so 
-it is likely that a number of storms were not counted. 
+it is likely that a number of storms were not counted. The data includes 
+latitude, longitude, wind speed, and pressure of storms at several points along 
+the track.
 
 ### Preliminary Figures
 
@@ -33,12 +35,17 @@ Figure 1 shows the number of storms recorded in the Atlantic between 1968 and
 
 ![](assets/storm_count.png)
 
-Each storm was classified according to the maximum intensity that was recorded.
-Considering only tropical cyclones (excluding subtropical and extratropical 
+Classifing each storm according to the maximum intensity that was recorded and
+considering only tropical cyclones (excluding subtropical and extratropical 
 storms), figure 2 shows the number of storms by intensity over time. A 
 tropical depression is the least intense and a hurricane is the most intense. 
+There seems to be a trend towards more tropical storms and fewer tropical 
+depressions.
 
 ![](assets/cyclone_count.png)
+
+These figures suggest that there may not be any trend in the number of overall 
+storms but there may be a trend towards more intense storms.
 
 ### Analysis
 
@@ -66,5 +73,5 @@ Then connect to the machine on port 8787.
 To build the figures in this project, such as the ones shown above, enter the 
 following in the terminal:
 
-  > make figures/storm_count.png
+    > make figures/storm_count.png
   
