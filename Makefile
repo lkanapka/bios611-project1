@@ -9,6 +9,11 @@ derived_data/storms.csv derived_data/tracks.csv:\
  r_code/tidy_data.R
 	Rscript r_code/tidy_data.R
 	
+derived_data/decade_summary.csv:\
+ derived_data/storms.csv\
+ r_code/descriptive_data.R
+	Rscript r_code/descriptive_data.R
+	
 figures/cyclone_count.png figures/storm_count.png:\
  derived_data/storms.csv\
  r_code/figures_over_time.R
