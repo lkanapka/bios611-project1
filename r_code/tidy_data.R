@@ -58,7 +58,7 @@ tracks <- tracks %>%
 # Only consider storms after 1967
 tracks <- tracks %>% filter(year>1967)
 
-# Create dataset that has only one record per storm with the first time 
+# Create data set that has only one record per storm with the first time 
 # that it reaches its maximum wind speed.
 maxWind <- tracks %>%
   group_by(storm_id) %>%
@@ -71,6 +71,17 @@ storms <- tracks %>%
   filter(wind==maxWind) %>%
   group_by(storm_id) %>%
   slice(1)
+
+storms <- storms %>% mutate(cycloneFlg=(status %in% c("TD", "TS","HU"))) %>%
+  mutate(hurFlg=(status=="HU")) %>%
+  mutate(majorFlg=((hurFlg==1) & (wind>110)))
+
+# Replace -99 with missing 
+storms$wind[storms$wind==-99]<-NA 
+
+# Create a variable for decade to make it easier to tabulate
+storms <- storms %>% mutate(decade=floor(year/10)*10) %>%
+  mutate(decade=paste(decade, "-", decade+9, sep=""))
 
 # Output cleaned data 
 write.csv(tracks, "derived_data/tracks.csv")
