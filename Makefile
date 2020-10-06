@@ -14,6 +14,11 @@ derived_data/decade_summary.csv:\
  r_code/descriptive_data.R
 	Rscript r_code/descriptive_data.R
 	
+derived_data/pValues.csv:\
+ derived_data/storms.csv\
+ r_code/linear_model.R
+		Rscript r_code/linear_model.R
+	
 fragments/descriptive_dataA.fragment.Rmd:\
  derived_data/storms.csv\
  r_code/descriptive_data.R
