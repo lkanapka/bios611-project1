@@ -22,7 +22,7 @@ been any patterns over the last few decades.
 
 The HURDAT2 dataset from the National Hurricane Center contains the tracks and 
 measurements of all recorded storms since 1851. This analysis will only consider 
-the storms that were observed after 1968 when modern sattelite surveillance 
+the storms that were observed after 1968 when modern satellite surveillance 
 was introduced. Prior to 1968, records relied on observations from ships and so 
 it is likely that a number of storms were not counted. The data includes 
 latitude, longitude, wind speed, and pressure of storms at several points along 
@@ -61,7 +61,11 @@ Usage
 
 You'll need Docker and the ability to run Docker as your current user.
 
-This Docker container is based on rocker/verse. To run rstudio server:
+This Docker container is based on rocker/verse. To build the Docker environment:
+
+    > docker build . -t project1-env
+    
+To run r-studio server:
 
     > docker run -v `pwd`:/home/rstudio -p 8787:8787\
       -e PASSWORD=analysis -t project1-env
@@ -70,8 +74,12 @@ Then connect to the machine on port 8787.
 
 ### Make 
 
-To build the figures in this project, such as the ones shown above, enter the 
+To build figures in this project, such as the ones shown above, enter the 
 following in the terminal:
 
     > make figures/storm_count.png
+    
+To build the final report:
+
+    > make report.pdf
   
