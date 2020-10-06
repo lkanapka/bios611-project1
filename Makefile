@@ -24,13 +24,24 @@ fragments/descriptive_dataB.fragment.Rmd:\
  figures/wind_boxplot.png\
  r_code/descriptive_data.R
 	Rscript r_code/descriptive_data.R
-	
+
+fragments/frequency.fragment.Rmd:\
+ derived_data/storms.csv\
+ figures/storm_count_avg.png\
+ r_code/frequency_over_time.R
+	Rscript r_code/frequency_over_time.R
+
 figures/wind_boxplot.png:\
  derived_data/storms.csv\
  r_code/descriptive_data.R
 	Rscript r_code/descriptive_data.R
 	
 figures/storm_count.png:\
+ derived_data/storms.csv\
+ r_code/frequency_over_time.R
+	Rscript r_code/frequency_over_time.R
+	
+figures/storm_count_avg.png:\
  derived_data/storms.csv\
  r_code/frequency_over_time.R
 	Rscript r_code/frequency_over_time.R
