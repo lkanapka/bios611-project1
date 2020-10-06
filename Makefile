@@ -3,7 +3,19 @@
 clean:
 	rm -f derived_data/*.csv
 	rm -f figures/*.png
-  
+	rm -f fragments/*.Rmd 
+	rm -f report.pdf
+	
+report.pdf:\
+ report.Rmd\
+ derived_data/decade_summary.csv\
+ derived_data/pValues.csv\
+ fragments/descriptive_dataA.fragment.Rmd\
+ fragments/descriptive_dataB.fragment.Rmd\
+ fragments/frequency.fragment.Rmd\
+ fragments/intensity.fragment.Rmd
+	Rscript -e 'rmarkdown::render("report.Rmd",output_format="pdf_document")'
+ 
 derived_data/storms.csv derived_data/tracks.csv:\
  source_data/hurdat2-1851-2019-052520.csv\
  r_code/tidy_data.R
