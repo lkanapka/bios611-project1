@@ -16,27 +16,27 @@ countYr<- storms %>% group_by(year) %>%
 countYr$time<- countYr$year-1968
 modelA <- lm(count ~ time, data=countYr)
 modelASum<-summary(modelA)
-pVal[2, 1]<- as.character(round(modelASum$coefficients[2,4], 2))
+pVal[2]<- as.character(round(modelASum$coefficients[2,4], 2))
 
 # Number of cyclones over time
 modelB <- lm(countCyclone ~ time, data=countYr)
 modelBSum<-summary(modelB)
-pVal[3, 1]<- as.character(round(modelBSum$coefficients[2,4], 2))
+pVal[3]<- as.character(round(modelBSum$coefficients[2,4], 2))
 
 # Number of hurricanes over time
 modelC <- lm(countHur ~ time, data=countYr)
 modelCSum<-summary(modelC)
-pVal[4, 1]<- as.character(round(modelCSum$coefficients[2,4], 3))
+pVal[4]<- as.character(round(modelCSum$coefficients[2,4], 3))
 
 # Number of major hurricanes over time
-modelD <- lm(count ~ time, data=countYr)
+modelD <- lm(countMajor ~ time, data=countYr)
 modelDSum<-summary(modelD)
-pVal[5, 1]<- as.character(round(modelDSum$coefficients[2,4], 3))
+pVal[5]<- as.character(round(modelDSum$coefficients[2,4], 3))
 
 # Average wind speed over time
 modelE <- lm(meanWind ~ time, data=countYr)
 modelESum <- summary(modelE)
-pVal[6, 1]<- "<0.001"
+pVal[6]<- "<0.001"
 
 # Output p-values to derived data
 write.csv(pVal, "derived_data/pValues.csv", row.names = F)
