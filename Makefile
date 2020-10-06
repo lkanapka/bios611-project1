@@ -14,10 +14,15 @@ derived_data/decade_summary.csv:\
  r_code/descriptive_data.R
 	Rscript r_code/descriptive_data.R
 	
-figures/cyclone_count.png figures/storm_count.png:\
+figures/storm_count.png:\
  derived_data/storms.csv\
- r_code/figures_over_time.R
-	Rscript r_code/figures_over_time.R
+ r_code/frequency_over_time.R
+	Rscript r_code/frequency_over_time.R
+
+figures/cyclone_count.png:\
+ derived_data/storms.csv\
+ r_code/intensity_over_time.R
+	Rscript r_code/intensity_over_time.R
 	
 assets/cyclone_count.png: figures/cyclone_count.png
 	cp figures/cyclone_count.png assets/cyclone_count.png
