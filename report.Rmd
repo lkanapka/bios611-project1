@@ -1,0 +1,42 @@
+---
+title: "Changes in Frequency and Intensity of Atlantic Storms over Time"
+author: "Lauren Kanapka"
+output: pdf_document
+---
+
+## Introduction
+
+There has been speculation that global warming could lead to an increase in the number and intensity of storms. The National Hurricane Center has released a public data set called HURDAT2 of all the storms that have been recorded in the Atlantic since 1851. This project will use the HURDAT2 data to see if there have been any patterns in the frequency or intensity of Atlantic storms over the last few decades.
+
+## Data Set
+
+The HURDAT2 data set from the National Hurricane Center contains the tracks and measurements of all recorded storms since 1851. This analysis will only consider the storms that were observed after 1968 when modern satellite surveillance was introduced. Prior to 1968, records relied on observations from ships and so it is likely that a number of storms were not counted. The data includes latitude, longitude, wind speed, and pressure of storms at several points along the track. We will consider each storm at the point on the track where it reaches its maximum sustained wind speed. 
+
+## Analysis
+
+```{r, child='fragments/descriptive_dataA.fragment.Rmd'}
+```
+```{r, echo=FALSE, message=FALSE}
+library(tidyverse)
+library(kableExtra)
+tableA <- read_csv("derived_data/decade_summary.csv")
+tableB <- read_csv("derived_data/pValues.csv")$x
+table <- rbind(tableA, tableB)
+knitr::kable(table,booktabs=T, caption = "Summary Statistics by Decade (1970-2019)", 
+             col.names=c("Decade", "No. of Storms", "No. of Tropical Cyclones",
+                         "No. of Hurricanes", "No. of Major Hurricanes", 
+                         "Average Wind Speed (knots)")) %>% 
+        kable_styling(full_width=T,latex_options = "hold_position")%>%
+        column_spec(1, width="10em")
+
+```
+```{r, child='fragments/frequency.fragment.Rmd'}
+```
+```{r, child='fragments/descriptive_dataB.fragment.Rmd'}
+```
+```{r, child='fragments/intensity.fragment.Rmd'}
+```
+
+## Conclusions
+
+There is no evidence for an increase in the number of storms over the past few decades. However, there is some evidence for an increase in the intensity of storms. This increase in intensity is associated with increases in global temperatures but we cannot tell if the rise in temperatures is the cause. 
