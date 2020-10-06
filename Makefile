@@ -14,6 +14,22 @@ derived_data/decade_summary.csv:\
  r_code/descriptive_data.R
 	Rscript r_code/descriptive_data.R
 	
+fragments/descriptive_dataA.fragment.Rmd:\
+ derived_data/storms.csv\
+ r_code/descriptive_data.R
+	Rscript r_code/descriptive_data.R
+	
+fragments/descriptive_dataB.fragment.Rmd:\
+ derived_data/storms.csv\
+ figures/wind_boxplot.png\
+ r_code/descriptive_data.R
+	Rscript r_code/descriptive_data.R
+	
+figures/wind_boxplot.png:\
+ derived_data/storms.csv\
+ r_code/descriptive_data.R
+	Rscript r_code/descriptive_data.R
+	
 figures/storm_count.png:\
  derived_data/storms.csv\
  r_code/frequency_over_time.R
