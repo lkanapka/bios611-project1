@@ -31,6 +31,12 @@ fragments/frequency.fragment.Rmd:\
  r_code/frequency_over_time.R
 	Rscript r_code/frequency_over_time.R
 
+fragments/intensity.fragment.Rmd:\
+ derived_data/storms.csv\
+ figures/cyclone_count.png\
+ r_code/intensity_over_time.R
+	Rscript r_code/intensity_over_time.R
+	
 figures/wind_boxplot.png:\
  derived_data/storms.csv\
  r_code/descriptive_data.R
