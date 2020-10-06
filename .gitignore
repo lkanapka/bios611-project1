@@ -2,3 +2,9 @@
 .rstudio/*
 derived_data/*.csv
 figures/*.png
+fragments/*.Rmd
+report.pdf
+.bash_history
+.Rhistory
+.config/
+data
