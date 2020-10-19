@@ -1,6 +1,35 @@
 Project 1 BIOS 611: Atlantic Storm Data Analysis
 ================================================
 
+Usage
+-----
+
+### Docker
+
+You'll need Docker and the ability to run Docker as your current user.
+
+This Docker container is based on rocker/verse. To build the Docker environment:
+
+    > docker build . -t project1-env
+    
+To run r-studio server:
+
+    > docker run -v `pwd`:/home/rstudio -p 8787:8787\
+      -e PASSWORD=analysis -t project1-env
+    
+Then connect to the machine on port 8787.
+
+### Make 
+
+To build figures in this project, such as the ones shown above, enter the 
+following in the terminal:
+
+    > make figures/storm_count.png
+    
+To build the final report:
+
+    > make report.pdf
+  
 Proposal
 --------
 
@@ -52,34 +81,3 @@ storms but there may be a trend towards more intense storms.
 Analysis will include descriptive statistics and figures and longitudinal 
 regression models. The analysis will be complete when we have met the objectives
 described above.
-
-
-Usage
------
-
-### Docker
-
-You'll need Docker and the ability to run Docker as your current user.
-
-This Docker container is based on rocker/verse. To build the Docker environment:
-
-    > docker build . -t project1-env
-    
-To run r-studio server:
-
-    > docker run -v `pwd`:/home/rstudio -p 8787:8787\
-      -e PASSWORD=analysis -t project1-env
-    
-Then connect to the machine on port 8787.
-
-### Make 
-
-To build figures in this project, such as the ones shown above, enter the 
-following in the terminal:
-
-    > make figures/storm_count.png
-    
-To build the final report:
-
-    > make report.pdf
-  
