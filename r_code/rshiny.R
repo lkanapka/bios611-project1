@@ -171,7 +171,6 @@ server <- function(input, output) {
 }
 
 # Start shiny on the specified port 
-port<-8788
 print(sprintf("Starting shiny on port %d", port))
 shinyApp(ui = ui, server = server, options = list(port=port, host="0.0.0.0"))
 

@@ -30,7 +30,7 @@ To build the final report:
 
     > make report.pdf
     
-## Shiny 
+### Shiny 
 
 To start the shiny dashboard, first build the docker environment as described above. Then run the following code in bash:
   
