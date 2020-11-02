@@ -1,10 +1,15 @@
-.PHONY: clean
+.PHONY: clean storms_shiny
 
 clean:
 	rm -f derived_data/*.csv
 	rm -f figures/*.png
 	rm -f fragments/*.Rmd 
 	rm -f report.pdf
+	
+storms_shiny:\
+ derived_data/tracks.csv\
+ derived_data/storms.csv
+	Rscript r_code/rshiny.R ${PORT}
 	
 report.pdf:\
  report.Rmd\
