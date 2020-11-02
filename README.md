@@ -17,18 +17,27 @@ To run r-studio server:
     > docker run -v `pwd`:/home/rstudio -p 8787:8787\
       -e PASSWORD=analysis -t project1-env
     
-Then connect to the machine on port 8787.
+Then connect to the machine on port 8787. The username for r-studio is "rstudio" and the password is "analysis".
 
 ### Make 
 
 To build figures in this project, such as the ones shown above, enter the 
-following in the terminal:
+following in the terminal inside r-studio:
 
     > make figures/storm_count.png
     
 To build the final report:
 
     > make report.pdf
+    
+## Shiny 
+
+To start the shiny dashboard, first build the docker environment as described above. Then run the following code in bash:
+  
+    > source aliases.sh
+    > start_shiny storms_shiny 8788
+    
+If you want to run shiny on a port other than 8788, change the number to the desired port in the line above. 
   
 Proposal
 --------
