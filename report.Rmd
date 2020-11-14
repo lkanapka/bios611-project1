@@ -36,6 +36,8 @@ knitr::kable(table,booktabs=T, caption = "Summary Statistics by Decade (1970-201
 ```
 ```{r, child='fragments/intensity.fragment.Rmd'}
 ```
+```{r, child='fragments/ace.fragment.Rmd'}
+```
 
 ## Conclusions
 
