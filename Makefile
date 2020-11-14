@@ -18,7 +18,8 @@ report.pdf:\
  fragments/descriptive_dataA.fragment.Rmd\
  fragments/descriptive_dataB.fragment.Rmd\
  fragments/frequency.fragment.Rmd\
- fragments/intensity.fragment.Rmd
+ fragments/intensity.fragment.Rmd\
+ fragments/ace.fragment.Rmd
 	Rscript -e 'rmarkdown::render("report.Rmd",output_format="pdf_document")'
  
 derived_data/storms.csv derived_data/tracks.csv:\
@@ -59,6 +60,12 @@ fragments/intensity.fragment.Rmd:\
  r_code/intensity_over_time.R
 	Rscript r_code/intensity_over_time.R
 	
+fragments/ace.fragment.Rmd:\
+ derived_data/tracks.csv\
+ figures/ace_time.png\
+ python_code/ACE_figure.py
+	python3 python_code/ACE_figure.py	
+	
 figures/wind_boxplot.png:\
  derived_data/storms.csv\
  r_code/descriptive_data.R
@@ -78,6 +85,11 @@ figures/cyclone_count.png:\
  derived_data/storms.csv\
  r_code/intensity_over_time.R
 	Rscript r_code/intensity_over_time.R
+	
+figures/ace_time.png:\
+ derived_data/tracks.csv\
+ python_code/ACE_figure.py
+	python3 python_code/ACE_figure.py
 	
 assets/cyclone_count.png: figures/cyclone_count.png
 	cp figures/cyclone_count.png assets/cyclone_count.png
