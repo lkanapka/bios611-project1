@@ -36,7 +36,7 @@ plot=plot+t
 plot.save('figures/ace_time.png',width=10,height=5)
 
 #Text for report
-f = open("fragments/ace.fragment.Rmd", "a")
+f = open("fragments/ace.fragment.Rmd", "w")
 f.write("Another measure of storm intensity is called accumulated cyclone energy (ACE). For each storm the wind speed is measured at 6 hour intervals. The ACE is calculated for each storm by squaring the wind speed at each interval and summing the values where the storm was considered a tropical cyclone. The ACE can be calculated over a whole year by summing the ACE across storms. The resulting values are usually scaled by dividing by 10,000. Figure 4 shows the ACE by year. There does appear to be a trend for increasing ACE over time. This is further evidence that the intensity of storms has increased since 1968.\
         ![Accumulated Cylone Energy Over Time (1968-2019)](figures/ace_time.png)")
 f.close()
