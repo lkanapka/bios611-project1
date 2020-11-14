@@ -1,4 +1,4 @@
-Project 1 BIOS 611: Atlantic Storm Data Analysis
+BIOS 611 Project: Atlantic Storm Data Analysis
 ================================================
 
 Usage
